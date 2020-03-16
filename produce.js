@@ -14,10 +14,10 @@ const createDocument = () => {
     const client = await connect();
     while (true) {
       const doc = createDocument();
-      const { result } = await client.insertOne(doc);
-      log(result);
+      const { insertedId } = await client.insertOne(doc);
+      log('producer', {insertedId});
     }
   } catch (err) {
-    log(err);
+    log('producer', err);
   }
 })();

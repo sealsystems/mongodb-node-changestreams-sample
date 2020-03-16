@@ -6,9 +6,13 @@ const log = require("./log");
 (async () => {
   try {
     const client = await connect();
-    client.watch().on("change", c => log(c));
-    log('Listening...');
+    client.watch().on("change", c =>
+      log("listen", {
+        insertedId: c.documentKey._id
+      })
+    );
+    console.log("Listening...");
   } catch (err) {
-    log(err);
+    log("listen", err);
   }
 })();
