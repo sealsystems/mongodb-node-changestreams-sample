@@ -24,7 +24,7 @@ You must configure a replica set for change streams to work. Follow the instruct
 
 ### SEAL setup 
 - `docker-compose up -d`
-- `docker-compose exec db1 mongo --eval rs.initalize()`
+- `docker-compose exec db1 mongo --eval rs.initiate()`
 - `cat config.js`
 - `node listen.js`
 - `node produce.js`
