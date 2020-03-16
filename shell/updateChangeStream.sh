@@ -1,1 +1,0 @@
-mongo --eval "var csFilter=1" changeStream.js
