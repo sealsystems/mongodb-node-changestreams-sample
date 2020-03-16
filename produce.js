@@ -15,9 +15,10 @@ const createDocument = () => {
     while (true) {
       const doc = createDocument();
       const { insertedId } = await client.insertOne(doc);
-      log('producer', {insertedId});
+
+      log("producer", { insertedId, timestamp: Date.now() });
     }
   } catch (err) {
-    log('producer', err);
+    log("producer", err);
   }
 })();

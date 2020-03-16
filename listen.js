@@ -8,7 +8,8 @@ const log = require("./log");
     const client = await connect();
     client.watch().on("change", c =>
       log("listen", {
-        insertedId: c.documentKey._id
+        insertedId: c.documentKey._id,
+        timestamp: Date.now()
       })
     );
     console.log("Listening...");
