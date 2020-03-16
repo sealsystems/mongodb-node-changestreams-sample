@@ -1,5 +1,6 @@
-cnxString = "mongodb://localhost:27017,localhost:27018,localhost:27019/demo?replicaSet=rs";
-conn = new Mongo(cnxString);
+const config = require('./config'); 
+
+conn = new Mongo(config.mongoDBUrl);
 db = conn.getDB("demo");
 collection = db.stock;
 let updatedQuantity = 1;

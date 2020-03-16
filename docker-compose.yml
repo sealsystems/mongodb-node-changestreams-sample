@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  db1:
+    image: mongo:3.6.1
+    ports:
+      - 27017:27017
+    command: --replSet rs1
+
+  # db2:
+  #   image: mongo:3.6.1
+  #   ports:
+  #     - 27018:27017
+
+  # db3:
+  #   image: mongo:3.6.1
+  #   ports:
+  #     - 27019:27017
