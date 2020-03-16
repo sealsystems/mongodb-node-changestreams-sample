@@ -19,3 +19,12 @@ You must configure a replica set for change streams to work. Follow the instruct
 1. Now stop the `listen.js` process. We're simulating an application crash and the ability to resume processing MongoDB Change Streams from the exact time the application "crashed".
 1. Add a few documents by running `node produce.js` several times.
 1. Start `node listen.js` again and notice that the previous documents you just added get processed right away.
+
+
+
+### SEAL setup 
+- `docker-compose up -d`
+- `docker-compose exec db1 mongo --eval rs.initalize()`
+- `cat config.js`
+- `node listen.js`
+- `node produce.js`
