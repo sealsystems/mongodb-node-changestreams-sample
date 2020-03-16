@@ -1,18 +1,22 @@
 version: '2'
 
 services:
-  db1:
+  db:
     image: mongo:3.6.1
     ports:
       - 27017:27017
     command: --replSet rs1
 
-  # db2:
-  #   image: mongo:3.6.1
-  #   ports:
-  #     - 27018:27017
+  listner:
+    image: sealsystems/mongodb-node-changestreams-sample
+    command: /code/listen.js
+    environment:
+      ES_INDEX: seal-winston-log
+      ES_NODE: ${ES_NODE}
 
-  # db3:
-  #   image: mongo:3.6.1
-  #   ports:
-  #     - 27019:27017
+  producer:
+    image: sealsystems/mongodb-node-changestreams-sample
+    command: /code/produce.js
+    environment:
+      ES_INDEX: seal-winston-log
+      ES_NODE: ${ES_NODE}
